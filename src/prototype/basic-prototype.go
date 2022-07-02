@@ -1,4 +1,4 @@
-package main
+package prototype
 
 import (
 	"bytes"
@@ -47,12 +47,7 @@ func NewBlockChain() *Blockchain {
 	return &Blockchain{[]*Block{NewGenesisBlock()}}
 }
 
-func main() {
-	bc := NewBlockChain()
-
-	bc.AddBlock("Send 1 BTC to JHON")
-	bc.AddBlock("Send 2 More BTC to JHON")
-
+func (bc *Blockchain) GetAllBlocks() {
 	for _, block := range bc.blocks {
 		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
 		fmt.Printf("Data: %s\n", block.Data)
